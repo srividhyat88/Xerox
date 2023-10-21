@@ -1,0 +1,19 @@
+import requests
+
+# Replace 'YOUR_XEROX_SERVICE_MANAGER_URL' with the actual URL
+xerox_service_manager_url = 'https://office.services.xerox.com/XeroxServicesManager/UI/Login.aspx?Url=%2fXeroxServicesManager%2fUI%2fHome.aspx'
+
+def access_xerox_service_manager():
+    try:
+        response = requests.get(xerox_service_manager_url)
+        if response.status_code == 200:
+            print("Successfully accessed Xerox Service Manager URL.")
+            print("Response content:")
+            print(response.text)
+        else:
+            print(f"Failed to access the URL. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == '__main__':
+    access_xerox_service_manager()
